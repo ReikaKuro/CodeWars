@@ -10,6 +10,7 @@ The maximum time never exceeds 359999 (99:59:59)
 You can find some examples in the test fixtures.
 """
 
+import time
 
 def make_readable(seconds):
     hour = 0 if int(seconds / 3600) == 0 else int(seconds / 3600)
@@ -18,5 +19,6 @@ def make_readable(seconds):
 
     return f'{hour:02d}:{minute:02d}:{seconds:02d}'
 
-
-print(make_readable(60))
+start_time = time.time()
+print(make_readable(99999999))
+print("My program took", time.time() - start_time, "to run")
