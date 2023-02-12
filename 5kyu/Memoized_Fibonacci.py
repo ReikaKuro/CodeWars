@@ -18,15 +18,28 @@ The trick of the memoized version is that we will keep a cache data structure (m
 
 Refactor the function into a recursive Fibonacci function that using a memoized data structure avoids the deficiencies of tree recursion. Can you make it so the memoization cache is private to this function?
 """
+cache = {}
 
 
 def fibonacci(n):
+    print(cache)
     if n in [0, 1]:
         return n
-    nums = [0, 1]
-    for x in range(n):
-        nums = [nums[1], nums[0]+nums[1]]
-    return nums[0]
+    result = cache
+    if n in cache:
+        return cache[n]
+    result = fibonacci(n - 1) + fibonacci(n - 2)
+    cache[n] = result
+    return result
+
+
+# def fibonacci(n):
+#     if n in [0, 1]:
+#         return n
+#     nums = [0, 1]
+#     for x in range(n):
+#         nums = [nums[1], nums[0]+nums[1]]
+#     return nums[0]
 
 
 print(fibonacci(70))
