@@ -19,7 +19,7 @@ def sum_strings(x, y):
     '579'
     """
 
-
+    # Code below will fast a lot faster. Crucial when working with really large numbers!!
     # from gmpy2 import mpz
     # return str(mpz(x if x != '' else 0) + mpz(y if y != '' else 0))
 
